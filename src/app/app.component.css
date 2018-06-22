@@ -1,0 +1,16 @@
+
+.aside{
+    border:1px solid #dfdfdf;
+    padding:10px;
+}
+.ram ul {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+}
+.table-bordered td, th {
+    padding:10px;
+}
+h5{
+    font-weight: 700;
+}
