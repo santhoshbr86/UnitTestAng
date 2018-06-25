@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
-import {Server} from './Server';
-import {GetServersService} from './get-servers.service';
-import {STORAGE_RANGES,RAM_RANGES, HDD_TYPES,LOCATIONS} from './Server';
+import {Server} from '../models/Server';
+import {GetServersService} from '../services/get-servers.service';
+import {STORAGE_RANGES,RAM_RANGES, HDD_TYPES,LOCATIONS, InputModel} from '../models/Server';
 
 @Component({
   selector: 'app-root',
@@ -15,27 +15,19 @@ export class AppComponent implements OnInit{
   ramRanges={};
   hddTypes=[];
   locations=[];
-  model={
-    range:'',
-    minRange:'',
-    rams:[],
-    hdd:'',
-    hddRange:0,
-    minhddRange:0,
-    location:''
-  };
+  model:InputModel
   constructor(private getServer:GetServersService){
     this.storageRanges=STORAGE_RANGES;
     this.ramRanges=RAM_RANGES;
     this.hddTypes=HDD_TYPES;
     this.locations=LOCATIONS;
     this.model={
-      range:this.storageRanges[0],
-      minRange:this.storageRanges[0],
+      range:'1',
+      minRange:'0',
       rams:[],
       hdd:'',
-      hddRange:0,
-      minhddRange:0,
+      hddRange:this.storageRanges[1],
+      minhddRange:this.storageRanges[0],
       location:''
     };
   }
@@ -53,7 +45,6 @@ export class AppComponent implements OnInit{
     this.filterChange();
   }
   filterChange(){
-    console.log(this.storageRanges[this.model.range]);
     this.model.hddRange=this.storageRanges[this.model.range];
     this.model.minhddRange=this.storageRanges[this.model.minRange];
     // console.log(this.model);

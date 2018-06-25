@@ -29,7 +29,7 @@
       </select>
     </div>
     <div class="Hard Disk type">
-        <h5>Harddisk type</h5>
+        <h5>Locations</h5>
         <select name="location" class="form-control" [(ngModel)]="model.location" (change)="filterChange()">
           <option selected value="">select Location</option> 
           <option *ngFor="let loc of locations" [value]="loc">{{loc}}</option>

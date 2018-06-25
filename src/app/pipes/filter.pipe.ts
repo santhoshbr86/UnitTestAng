@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {STORAGE_RANGES} from './Server';
+import {STORAGE_RANGES} from '../models/Server';
 @Pipe({
   name: 'filter',
   pure:false

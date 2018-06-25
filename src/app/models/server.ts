@@ -23,11 +23,19 @@ export class Hdd{
 }
 
 export class Price{
-       currency: String;
+       currency: string;
         currencySymbol: string;
         amountCents: number;
 }
-
+export class InputModel{
+        range:string;
+        minRange:string;
+        rams:string[];
+        hdd:string;
+        hddRange:string;
+        minhddRange:string;
+        location:''; 
+}
 export const STORAGE_RANGES = {0:'0', 1:'250GB', 2:'500GB', 3:'1TB', 4:'2TB', 5:'3TB', 6:'4TB', 7:'8TB', 8:'12TB', 9:'24TB',10:'48TB', 11:'72TB'};
 
 export const RAM_RANGES=[{checked:false,value:'2GB'}, {checked:false,value:'4GB'}, {checked:false,value:'8GB'}, {checked:false,value:'12GB'}, {checked:false,value:'16GB'}, {checked:false,value:'24GB'}, {checked:false,value:'32GB'}, {checked:false,value:'48GB'}, {checked:false,value:'64GB'},{checked:false,value:'96GB'}];
