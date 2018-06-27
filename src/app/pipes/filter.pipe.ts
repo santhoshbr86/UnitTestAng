@@ -6,6 +6,7 @@ import {STORAGE_RANGES} from '../models/Server';
 })
 export class FilterPipe implements PipeTransform {
   storageRange=STORAGE_RANGES;
+  constructor(){}
   convertToGB(item,maxRange,minRange){
     item.hdd.memoryInGB=item.hdd.unit==='TB'?parseInt(item.hdd.memory)*1000:item.hdd.memoryInGB=parseInt(item.hdd.memory);
     maxRange=maxRange.indexOf('TB')!==-1?maxRange=parseInt(maxRange)*1000:maxRange=parseInt(maxRange);

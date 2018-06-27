@@ -13,6 +13,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Servers List');
+    expect(compiled.querySelector('.container h1').textContent).toContain('Servers List');
   }));
+
 });

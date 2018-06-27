@@ -11,4 +11,12 @@ export class AppPage {
   getFilterTitle(){
     return element(by.css('aside h4')).getText();
   }
+  getStorageInput()
+  {
+      return element(by.css('input[name="range"]'));
+  }
+  getStorageMaxText(){
+    return element(by.css('storage .pull-right')[0]).getText();
+  }
+
 }
