@@ -1,0 +1,61 @@
+<div class="container">
+  <h1>Servers List</h1>
+  <aside class="col-md-3">
+  <h4>Use Filters</h4>
+  <div class="aside">
+    <form>
+    <div class="storage">
+      <h5>Storage Range</h5>
+      <span class="pull-right">Max:{{model.hddRange}}</span>
+      <input type="range" min="0" max="11" id="range" name="range" [(ngModel)]="model.range" (change)="filterChange()" />
+      <span class="pull-right">Min:{{model.minhddRange}}</span>
+      <input type="range" min="0" max="11"  name="minRange" [(ngModel)]="model.minRange" (change)="filterChange()" />
+    </div>
+    <div class="ram">
+      <h5>Ram</h5>
+      <ul>
+        <li class="checkbox"  *ngFor="let ram of ramRanges; let i=index;">
+          <label>
+            <input type="checkbox" name="{{ram.value}}" [(ngModel)]="ram.checked" [value]="ram.value" (change)="checkedRams(ram)"/> {{ram.value}}
+        </label>
+        </li>
+      </ul>
+    </div>
+    <div class="Hard Disk type">
+      <h5>Harddisk type</h5>
+      <select name="hddType" class="form-control" [(ngModel)]="model.hdd" (change)="filterChange()">
+          <option selected value="">select Harddisk type</option>
+         <option *ngFor="let hdd of hddTypes" [value]="hdd">{{hdd}}</option>
+      </select>
+    </div>
+    <div class="Hard Disk type">
+        <h5>Locations</h5>
+        <select name="location" class="form-control" [(ngModel)]="model.location" (change)="filterChange()">
+          <option selected value="">select Location</option> 
+          <option *ngFor="let loc of locations" [value]="loc">{{loc}}</option>
+        </select>
+      </div>
+  </form>
+</div>
+  </aside>
+  <section class="ServerList col-md-9">
+    <h4>Servers List</h4>
+    <table class="table-bordered" *ngIf="!errorMessage">
+      <tr>
+        <th>Model</th>
+        <th>Ram</th>
+        <th>HDD</th>
+        <th>Location</th>
+        <th>Price</th>
+      </tr>
+      <tr *ngFor="let ser of servers | filter:model">
+          <td>{{ser.model}}</td>
+          <td>{{ser.ram.memory}} {{ser.ram.unit}} {{ser.ram.type}}</td>
+          <td>{{ser.hdd.memory}} {{ser.hdd.unit}}, {{ser.hdd.type}}</td>
+          <td>{{ser.location}}</td>
+          <td>{{ser.price.currencySymbol}}, {{ser.price.amountCents}}</td>
+      </tr>
+    </table>
+    <div *ngIf="errorMessage">{{errorMessage}}</div>
+  </section>
+</div>
