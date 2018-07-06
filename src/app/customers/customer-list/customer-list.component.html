@@ -1,0 +1,12 @@
+<section>
+  <aside>
+    <app-customer-add></app-customer-add>
+  </aside>  
+  <section>
+    <ul>
+      <li *ngFor="let cust of customers | async">
+        {{ cust.name }}{{ cust.email }} {{ cust.phone }}
+      </li>
+    </ul>
+  </section>
+</section>

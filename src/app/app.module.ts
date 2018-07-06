@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import {MatMenuModule} from '@angular/material/menu';
-import { AppComponent } from './components/app.component';
+import { AppComponent } from './app.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { ServerDetailComponent } from './components/server-detail/server-detail.component';
@@ -14,14 +14,12 @@ import {PageNotfoundComponent} from './components/page-notfound/page-notfound.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-const approutes:Routes = [
-  {path:'servers', component:ServersComponent},
-  {path:'serverDetail', component:ServerDetailComponent},
-  {path:'',redirectTo:'servers', pathMatch:'full'},
-  { path: '**', component: PageNotfoundComponent }
-];
-
+import { MatToolbarModule,MatInputModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './/app-routing.module';
+import {StoreModule} from '@ngrx/store';
+import {reducer} from './reduces/customer.reducers';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +34,11 @@ const approutes:Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(approutes),
+    AppRoutingModule,
+    RouterModule,
+    StoreModule.forRoot({
+      customer:reducer
+    }),
     MatMenuModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -44,7 +46,11 @@ const approutes:Routes = [
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

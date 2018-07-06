@@ -1,0 +1,10 @@
+<div>
+<form [formGroup]="signupForm">
+    <input matInput placeholder="Name" formControlName="name"/>
+    <input type="password" matInput placeholder="password" formControlName="password"/>
+    <input type="email" matInput placeholder="Email Address" formControlName="email"/>
+    <input type="text" matInput placeholder="phone" formControlName="phone"/>
+    <button mat-raised-button color="primary" (click)="onSignUp(signupForm)">signUp</button>
+</form>
+
+</div>
