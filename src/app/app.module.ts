@@ -4,7 +4,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { AppComponent } from './app.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './components/login/login.component';
@@ -14,7 +14,7 @@ import {PageNotfoundComponent} from './components/page-notfound/page-notfound.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule,MatInputModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatInputModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './/app-routing.module';
@@ -37,7 +37,7 @@ import {reducer} from './reduces/customer.reducers';
     AppRoutingModule,
     RouterModule,
     StoreModule.forRoot({
-      customer:reducer
+      customer: reducer
     }),
     MatMenuModule,
     BrowserAnimationsModule,
